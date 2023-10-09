@@ -1,0 +1,26 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Npm Project",
+            "type": "npm",
+            "script": "build"
+        },
+        {
+            "label": "Build and Push Bitburner project",
+            "dependsOn": ["Build Npm Project"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "command": ["${command:ext.bitburner-connector.pushAllFiles}"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
