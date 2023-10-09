@@ -1,30 +1,10 @@
 # NEW README
 
-## Installation
+# Installation
 
-> `npm ci`
+`npm ci`
 
-# Update types for game (if game updates)
-
-download `src/ScriptEditor/NetscriptDefinitions.d.ts` from this
-[raw file](https://raw.githubusercontent.com/bitburner-official/bitburner-src/dev/src/ScriptEditor/NetscriptDefinitions.d.ts)
-or clone from the
-[bitburner-src](https://github.com/bitburner-official/bitburner-src)
-repo
-
-create file in `src/lib/ns.t.ts` and add the following
-
-```ts
-declare module "ns" {
-    // paste contents of NetscriptDefinitions.d.ts here
-}
-```
-
-For every `declare enum` type you will have to remove the `declare ` keyword, leaving only `enum`.
-
-> you can easily do this with find and replace
-
-# Set up the bitburner vscode extension
+## Set up the bitburner vscode extension
 
 #### In vscode
 
@@ -73,9 +53,37 @@ running `ls` should now some new directories and files
 
 ![what the game shows when you run ls](images/on_init_file_sync.png?raw=true "on_init_file_sync")
 
-## Aliases
+# Aliases
 
-#### rmAllScripts
+-   ### aliasBin
+    -   args: `none`
+    -   desc: prompts user with command(s) to alias all scripts in `/bin`. example: `alias aliasBin="run bin/aliasBin --tail"`
+-   ### unaliasBin
+    -   args: `none`
+    -   desc: prompts user with command(s) to unalias all scripts in `/bin`. functional opposite to `aliasBin`
+-   ### rmAllScripts
+    -   args: `none`
+    -   desc: recursively removes all `.js` or `.ns` files in any directory except `/bin` (`/bin/**/*`)
+
+# Update types for game (if game updates)
+
+-   download `src/ScriptEditor/NetscriptDefinitions.d.ts` from this
+    [raw file](https://raw.githubusercontent.com/bitburner-official/bitburner-src/dev/src/ScriptEditor/NetscriptDefinitions.d.ts)
+    or clone from the
+    [bitburner-src](https://github.com/bitburner-official/bitburner-src)
+    repo
+
+-   delete file `src/lib/ns.t.ts`
+-   create file `src/lib/ns.t.ts` and add the following
+    ```ts
+    declare module "ns" {
+        // paste contents of NetscriptDefinitions.d.ts here
+    }
+    ```
+
+For every `declare enum` type you will have to remove the `declare ` keyword, leaving only `enum`.
+
+> you can easily do this with find and replace
 
 ## Notes about scripts
 
