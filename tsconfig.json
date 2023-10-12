@@ -5,12 +5,13 @@
         "rootDir": "src/",
         "baseUrl": "src/",
         "paths": {
-            "/types/*": ["types/*"],
-            "@lib/*": ["lib/*"]
+            "/types/*": ["types/*"]
         },
         "outDir": "build/",
         "moduleResolution": "node",
         "strictNullChecks": true,
-        "strictPropertyInitialization": true
-    }
+        "strictPropertyInitialization": true,
+        "esModuleInterop": true
+    },
+    "include": ["./src/**/*"]
 }
