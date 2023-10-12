@@ -2,17 +2,23 @@ import { NS } from "ns";
 import { constants } from "lib/constants";
 
 export async function main(ns: NS) {
-    var serv = ns.args[0] as constants.anyTarget;
-
-    if (ns.fileExists("BruteSSH.exe")) ns.brutessh(serv);
-
-    if (ns.fileExists("FTPCrack.exe")) ns.ftpcrack(serv);
-
-    if (ns.fileExists("relaySMTP.exe")) ns.relaysmtp(serv);
-
-    if (ns.fileExists("HTTPWorm.exe")) ns.httpworm(serv);
-
-    if (ns.fileExists("SQLInject.exe")) ns.sqlinject(serv);
-
-    ns.nuke(serv);
+    var target = ns.args[0] as constants.anyTarget;
+    try {
+        ns.brutessh(target);
+    } catch {}
+    try {
+        ns.ftpcrack(target);
+    } catch {}
+    try {
+        ns.relaysmtp(target);
+    } catch {}
+    try {
+        ns.httpworm(target);
+    } catch {}
+    try {
+        ns.sqlinject(target);
+    } catch {}
+    try {
+        ns.nuke(target);
+    } catch {}
 }
