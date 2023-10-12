@@ -1,14 +1,17 @@
 {
     "scripts": {
-        "clean": "rimraf build",
-        "pre-build": "npm run clean",
+        "clean": "rimraf -g build/*",
+        "copyfiles": "copyfiles \"./src/**/*.txt\" ./build -u 1",
+        "pre-build": "npm run clean && echo \"pre-build complete\"",
+        "post-build": "echo \"post-build complete\"",
         "compile-ts": "tsc -p tsconfig.json",
-        "build": "npm run pre-build && npm run compile-ts",
-        "test": "node bin/manifest.js"
+        "build": "npm run pre-build && npm run compile-ts && echo \"Build complete\" && npm run post-build",
+        "watch": "tsc-watch -p tsconfig.json --onSuccess \"npm run post-build\""
     },
     "devDependencies": {
-        "@types/node": "^20.8.3",
+        "copyfiles": "^2.4.1",
         "rimraf": "^5.0.5",
+        "tsc-watch": "^6.0.4",
         "typescript": "^5.1.6"
     }
 }

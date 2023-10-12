@@ -5,6 +5,7 @@
 -   node
 -   [bitburner](https://store.steampowered.com/app/1812820/Bitburner/) installed on steam
 -   [vscode](https://code.visualstudio.com)
+-   [Bitburner VSCode Integration](https://marketplace.visualstudio.com/items?itemName=bitburner.bitburner-vscode-integration)
 
 # Installation
 
@@ -36,7 +37,7 @@ npm ci
 
 #### In vscode
 
--   download the extention from the marketplace `Bitburner VSCode Integration`
+-   download the extention from the marketplace [`Bitburner VSCode Integration`](https://marketplace.visualstudio.com/items?itemName=bitburner.bitburner-vscode-integration)
 -   create `.vscode/settings.json` file
     ```bash
     mkdir .vscode && touch .vscode/settings.json
