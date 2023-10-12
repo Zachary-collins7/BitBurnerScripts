@@ -1,5 +1,5 @@
 import { NS } from "ns";
-// import { Constants } from "/lib/Constants";
+import { constants } from "lib/constants";
 // import Colors = Constants.Colors;
 // import Home = Constants.Home;
 // import LogLevel = Constants.LogLevel;
@@ -142,7 +142,7 @@ async function _nsFunctionCaller<T extends NSFunction>(
         if (Date.now() > timeout) {
             throw new Error(`Timeout waiting for output file ${outputTmpFile}`);
         }
-        await ns.sleep(50); // 50 would be faster
+        await ns.sleep(constants.scriptExecuteTime * 2);
     }
 
     // read output
