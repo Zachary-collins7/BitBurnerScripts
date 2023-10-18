@@ -90,7 +90,7 @@ export module constants {
         grow: {
             time: number;
             securityIncrease: number;
-            threadCalc: (targetMultiplier: number) => number;
+            threadCalc(targetMultiplier: number): Promise<number>;
         };
         weaken: {
             time: number;
